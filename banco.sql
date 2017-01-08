@@ -52,29 +52,3 @@ CREATE TABLE `vagas` (
   
   PRIMARY KEY (`id`,`dataVaga`,`vaga`,`area`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
-Projeto Drogaria
-
-CREATE TABLE `fabricante` (
-  `codigo`        int(08) NOT NULL AUTO_INCREMENT,
-  `descricao`        varchar(40) NOT NULL,
-    
-  PRIMARY KEY (`cd_fabricante`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
-CREATE TABLE `produto` (
-  `codigo`               int(08)   NOT NULL AUTO_INCREMENT,
-  `descricao`        varchar(50)   NOT NULL,
-  `quantidade`           int(05)   NOT NULL,
-  `preco`            decimal(10,2) NOT NULL,
-  `fabricante_codigo`    int(08),
-  
-  PRIMARY KEY (`cd_produto`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
-ALTER TABLE `produto` 
-ADD CONSTRAINT `fk_produto_fabricante` 
-FOREIGN KEY (`fabricante_codigo`) 
-REFERENCES `drogaria`.`fabricante`(`codigo`) 
-ON DELETE NO ACTION 
-ON UPDATE NO ACTION; 
